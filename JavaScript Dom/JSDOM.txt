@@ -1,0 +1,112 @@
+The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.
+
+There are several ways to manipulate the DOM using JavaScript. Here are some of the most commonly used methods:
+
+    getElementById() - This method retrieves an element from the document by its id attribute.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+
+    querySelector() - This method retrieves an element from the document by a CSS selector.
+
+Example:
+
+javascript
+
+const element = document.querySelector('.my-class');
+
+    createElement() - This method creates a new element.
+
+Example:
+
+javascript
+
+const newElement = document.createElement('div');
+
+    appendChild() - This method adds a new child element to an existing element.
+
+Example:
+
+javascript
+
+const parentElement = document.getElementById('parent');
+const childElement = document.createElement('div');
+parentElement.appendChild(childElement);
+
+    removeChild() - This method removes a child element from an existing element.
+
+Example:
+
+javascript
+
+const parentElement = document.getElementById('parent');
+const childElement = document.getElementById('child');
+parentElement.removeChild(childElement);
+
+    setAttribute() - This method sets the value of an attribute for an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+element.setAttribute('class', 'my-class');
+
+    getAttribute() - This method retrieves the value of an attribute for an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+const className = element.getAttribute('class');
+
+    classList.add() - This method adds a CSS class to an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+element.classList.add('my-class');
+
+    classList.remove() - This method removes a CSS class from an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+element.classList.remove('my-class');
+
+    classList.toggle() - This method toggles a CSS class on an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+element.classList.toggle('my-class');
+
+    innerHTML - This property sets or gets the HTML content inside an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+element.innerHTML = '<p>Hello world!</p>';
+
+    innerText - This property sets or gets the text content inside an element.
+
+Example:
+
+javascript
+
+const element = document.getElementById('my-element');
+element.innerText = 'Hello world!';
+
+These are just some of the most commonly used DOM manipulation methods in JavaScript. There are many more methods available in the DOM API, and each one has specific use cases and requirements. Understanding how to manipulate the DOM is essential for building interactive web pages and web applications.

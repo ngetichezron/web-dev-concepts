@@ -1,0 +1,819 @@
+
+When a web page is loaded, browser creates a Document Object Model of the page.
+
+Constructed as a tree of Objects:
+
+JavaScript then gets all the power it needs to create dynamic HTML:
+
+    change all the HTML elements in the page
+    change all the HTML attributes in the page
+    change all the CSS styles in the page
+    remove existing HTML elements and attributes
+    add new HTML elements and attributes
+    react to all existing HTML events in the page
+    create new HTML events in the page
+
+
+// innerHTML easiest way to get content of element
+// useful for getting and replacing content of HTML
+
+// when accessing any element, start with accessing the document object.
+
+Finding html elements:
+document.getElementById,TagName,ClassName()
+
+
+Changing HTML elements:
+element.innerHTML = new html content
+element.attribute = new value
+element.style.property = new style
+element.setAttribute( attribute, value ) - change attribute value of HTML element
+
+
+Adding and Deleting Elements
+document.createElement(element)
+document.removeChild(element)
+document.appendChild(element)
+document.replaceChild(new, old)
+document.write(text) - write into HTML output stream
+
+
+
+Adding event Handlers
+doucument.getElementById(id).onclick = function(){code}
+
+
+Finding HTML objects
+document.anchors
+         baseURI
+         body
+         cookie
+         doctype
+         documentElement - return <html> (full document)
+         documentMode
+         documentURI
+         domain
+         embeds - return all <embed> elements
+         forms
+         head
+         images
+         implementation - return the DOM implementation
+         inputEncoding
+         lastModified
+         links - returns all <area> and <a> elems with href att
+         title
+         URL 
+
+
+
+
+How to Find and Access HTML elements
+
+Find the elements first. There are several ways to do this:
+
+    Finding HTML elements by id
+    Finding HTML elements by tag name
+      const elem = document.getElementsByTagName('p')
+      // finds all <p> elements
+      
+      const x = document.getElementById("main");
+      const y = x.getElementsByTagName("p");
+      // all <p> inside 'main'
+      
+    Finding HTML elements by class name
+    Finding HTML elements by CSS selectors
+      const x = document.querySelectorAll('p.intro')
+      // returns list of all <p> with class 'intro'
+      
+      
+    
+    
+    Finding HTML elements by HTML object collections
+    // to find & display all elems values in form elem with
+    // id of 'frm1'
+    
+    const x = document.forms['frm1'];
+    let text = '';
+    for ( let i = 0; i < x.length; i++) {
+        text += x.elements[i].value + 'br';
+    }
+    document.getElementById('demo').innerHTML = text;
+    
+    
+    other accessible object collections:
+       document.anchors
+                body
+                doucumentElement
+                embeds
+                forms
+                head
+                images
+                links
+                script
+                title
+                
+                
+                
+Changing HTML content
+- easiest way to modify HTML contents = innerHTML property
+ syntax:
+   document.getElementById(id).innerHTML = new HTML
+   
+   // change content of <p> element
+    <html>
+    <body>
+
+    <p id="p1">Hello World!</p>
+
+    <script>
+    document.getElementById("p1").innerHTML = "New text!";
+    </script>
+
+    </body>
+    </html> 
+    
+    
+    // changing value of an attribute
+       syntax:
+       document.getElementById(id).attribute = new value
+        <!DOCTYPE html>
+        <html>
+        <body>
+
+        <img id="myImage" src="smiley.gif">
+
+        <script>
+        document.getElementById("myImage").src = "landscape.jpg";
+        </script>
+
+        </body>
+        </html> 
+        
+        
+        
+        Dynamic HTML Content
+        // JS can create dynamic HTML content:
+        
+         <!DOCTYPE html>
+        <html>
+        <body>
+
+        <script>
+        document.getElementById("demo").innerHTML = "Date : " + Date(); </script>
+
+        </body>
+        </html> 
+        
+        
+        DOCUMENT.WRITE()
+        // can be used to write directly to the HTML output stream
+        
+        
+NEVER use document.write() after document is loaded. It overrides the document
+         
+        <!DOCTYPE html>
+        <html>
+        <body>
+
+        <p>Bla bla bla</p>
+
+        <script>
+        document.write(Date());
+        </script>
+
+        <p>Bla bla bla</p>
+
+        </body>
+        </html>          
+                
+            
+
+JAVASCRIPT FORMS
+  Form validation
+  can be done by JS
+      // if fname empty, alerts message & returns FALSE
+      
+      function validateForm() {
+      let x = document.forms["myForm"]["fname"].value;
+      if (x == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+    }  
+    
+    calling the method when form is submitted:
+     <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+     Name: <input type="text" name="fname">
+     <input type="submit" value="Submit">
+     </form>   
+     
+     
+     Automatic html form validation
+     // validation can be done automatically by browser
+     // but not internet explorer 9 or earlier :)
+     
+      <form action="/action_page.php" method="post">
+         <input type="text" name="fname" required>
+         <input type="submit" value="Submit">
+       </form> 
+       
+       
+       
+       
+       
+       Data validation
+       // to ensure user input is clean, correct & useful
+       - has user filled in all required fields?
+                  entered a valid date?
+                  entered a text in numeric field?
+       
+       // deployed in many different ways:
+       
+       1. Server side validation - by webserver after input sent
+       2. Client side validation - by web browser before input sent to web server
+       
+       
+       HTML Constraint validation
+       // introduced in HTML 5
+       based on:
+           HTML input attributes
+           CSS Pseudo Selectors
+           DOM Properties and Methods
+           
+           
+           Constraint Validation HTML Input Attributes
+               disabled
+               max
+               min
+               pattern - specifies value pattern of input elem
+               required
+               type
+               ... many more in HTML Input Attributes
+               
+               
+           Constraint Validation CSS Pseudo Selectors
+               :disabled
+               :invalid
+               :optional
+               :required
+               :valid
+               ... many more in CSS Pseudo Classes
+               
+               
+               
+           
+           
+           Changing HTML Style
+           syntax:
+               document.getElementById(id).style.property = new style
+               
+               // change style of <p> element
+                <html>
+                <body>
+
+                <p id="p2">Hello World!</p>
+
+                <script>
+                document.getElementById("p2").style.color = "blue";
+                </script>
+
+                </body>
+                </html> 
+                
+                
+                
+            Using Events:
+            // allows you to execute code when an event occurs
+            i.e:
+              element is clicked
+              page has loaded
+              input fields change
+              
+              // chagne style of elem id='id1' when user clicks button
+              
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <h1 id="id1">My Heading 1</h1>
+
+                <button type="button"
+                onclick="document.getElementById('id1').style.color = 'red'">
+                Click Me!</button>
+
+                </body>
+                </html> 
+                
+                .... do you want to make an element invisible?
+                ... more on: HTML DOM Style Object Reference
+                
+                
+               
+HTML DOM Events
+examples:
+   user clicks mouse
+   web page loaded
+   image loaded
+   mouse hover
+   input field change
+   HTML form submitted
+   user strokes key
+   
+            // <h1> changed when user clicks on it:
+            <!DOCTYPE html>
+            <html>
+            <body>
+
+            <h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+
+            </body>
+            </html> 
+            
+            
+            // calling function from event handler
+             <!DOCTYPE html>
+            <html>
+            <body>
+
+            <h1 onclick="changeText(this)">Click on this text!</h1>
+
+            <script>
+            function changeText(id) {
+              id.innerHTML = "Ooops!";
+            }
+            </script>
+
+            </body>
+            </html> 
+            
+            
+            
+          HTML Event Attributes
+          // assign events to HTML elements
+          // <button onclick='displayDate()'>Try it</button>
+            // Fn displayDate executed when button clicked
+          
+          
+          Assign Events Using HTML DOM
+          
+           <script>
+            document.getElementById("myBtn").onclick = displayDate;
+           </script> 
+                  
+           
+           
+           
+           onload and onunload events
+           // onload:
+                check visitors browser type, version
+                load proper version of webpage based on the info
+                to deal with cookies
+                      <body onload="checkCookies()"> 
+           
+           
+           onchange event
+           // used in combo with validation of input fields
+           // uppercase() called when user changes content of input field
+            <input type="text" id="fname" onchange="upperCase()"> 
+            
+            
+            
+            
+            onmouseover & onmouseout
+            
+            
+            
+            onmousedown, onmouseup, onclick
+            
+            
+            
+
+            onmousedown and onmouseup
+            Change an image when a user holds down the mouse button.
+
+            onload
+            Display an alert box when the page has finished loading.
+
+            onfocus
+            Change the background-color of an input field when it gets focus.
+
+            Mouse Events
+            Change the color of an element when the cursor moves over it.
+            
+            
+            
+            
+            
+            
+HTML EventListener:
+        addEventListener()   - when a user clicks a button
+        
+        document.getElementById("myBtn").addEventListener("click", displayDate); 
+        // attaches event handler to specified element
+        // without overwriting existing event handlers
+        // many event handlers to one elem
+        // many, of even same type, i.e two onclick events
+        // add to any DOM object, not only HTML elems
+        // with it, easier to control bubbling
+        // removeEventListener() - to remove event listeners
+        
+        element.addEventListener(event, function, useCapture);
+        
+        useCapture - boolean value, whether to use event bubbling or event capturing: parameter is optional
+        
+        'on' PREFIX not used for the event
+        'click' instead of 'onclick'
+        
+        
+        
+        
+                Add Event Handler to an Element             
+         element.addEventListener("click", function(){ alert("Hello World!"); }); 
+         
+         // also:
+         element.addEventListener("click", myFunction);
+
+         function myFunction() {
+           alert ("Hello World!");
+         }    
+            
+            
+         
+         Many Event handlers to same element
+         element.addEventListener("click", myFunction);
+         elment.addEventListener("click", mySecondFunction);
+         
+         element.addEventListener("mouseover", myFunction);
+         element.addEventListener("click", mySecondFunction);
+         element.addEventListener("mouseout", myThirdFunction); 
+         
+         // fire when user resizes the window:
+         window.addEventListener("resize", function(){
+         document.getElementById("demo").innerHTML = sometext;
+        });
+        
+        
+        // when passing parameter values:
+        use an anonymous function that calls the 
+        specified function with the parameters.
+        
+        element.addEventListener("click", function(){ myFunction(p1, p2); });
+        
+        
+        
+        EVENT BUBBLING OR EVENT CAPTURING?
+        two ways of event propagation
+         - way of defining elem order when event occurs
+         bubbling - innermost elem's event handled first, then outer
+         capturing - outermost elem's event handled first
+         
+         with addEventLister() you can specify type by using 'useCapture' param
+         addEventListener(event, function, useCapture)
+         // default value is false
+         // useCapture boolean: replace with true or false
+         
+         
+         
+         
+         
+         
+       
+       
+       element.removeEventListener("mousemove", myFunction);    
+            
+
+
+
+HTML DOM Navigation
+// navigate tree node using relationships
+    // everything in HTML document is a node
+    element node
+    text nodes
+    attribute node (deprecated)
+    comment nodes
+    document node (entire doc)
+    
+    
+    all nodes in a node tree can be accessed by JS
+    new nodes created
+    all nodes modified, deleted etc
+    
+    // node tree structure
+
+    <html> is the root node
+    <html> has no parents
+    <html> is the parent of <head> and <body>
+    <head> is the first child of <html>
+    <body> is the last child of <html>
+
+and:
+
+    <head> has one child: <title>
+    <title> has one child (a text node): "DOM Tutorial"
+    <body> has two children: <h1> and <p>
+    <h1> has one child: "DOM Lesson one"
+    <p> has one child: "Hello world!"
+    <h1> and <p> are siblings
+    
+    
+    // node properties to navigate between nodes with
+    
+    
+    
+    parentNode
+    childNodes[nodenumber]
+    firstChild
+    lastChild
+    nextSibling
+    previousSibling
+    
+    
+     myTitle = document.getElementById("demo").innerHTML;
+     myTitle = document.getElementById("demo").firstChild.nodeValue;
+      myTitle = document.getElementById("demo").childNodes[0].nodeValue;
+
+
+
+
+
+innerHTML
+    // retrieve content of HTML element
+    
+    
+    
+    
+    
+    
+       NODEName Properties
+           read-only
+           nodeName same as element's tag name, node's attrib name
+           nodeName of text node is always #text
+                       document node is always #document
+           
+           
+           nodeName always contains the uppercase tag name of an HTML element.
+           
+           
+       NODEValue properties
+           for element nodes is null
+               text nodes is the text itself
+               attrib nodes is the attrib itself
+               
+               
+       nodeType properties
+           read only
+           returns type of a node
+           
+           
+           
+           
+           
+       Creating new HTML Elements (nodes)
+       // to add new elem to HTML DOM, first create element element(element node), and then append it to an existing element
+       
+        <div id="div1">
+          <p id="p1">This is a paragraph.</p>
+          <p id="p2">This is another paragraph.</p>
+        </div>
+
+        <script>
+        const para = document.createElement("p");
+        const node = document.createTextNode("This is new.");
+        para.appendChild(node);
+
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+        </script> 
+        
+        
+        
+        
+        
+        
+        Creating new HTML Elemens - insertBefore()
+        // appendChild() appended new elem as last child of parent
+        use insertBefore() if you don't want that
+        
+        // -------------
+        const element = document.getElementbyId("div1")
+        const child = document.getElementById("p1")
+          // this is new.
+        
+        element.insertBefore(para, child);        
+         
+        
+        
+        
+        Removing Existing HTML Elements 
+         <div>
+          <p id="p1">This is a paragraph.</p>
+          <p id="p2">This is another paragraph.</p>
+        </div>
+
+        <script>
+        const elmnt = document.getElementById("p1"); elmnt.remove();
+        </script> 
+        
+        // remove() method does not work in altem browsers. an alternative is to use removeChild()
+        // find parent node to remove element             
+        
+         <div id="div1">
+          <p id="p1">This is a paragraph.</p>
+          <p id="p2">This is another paragraph.</p>
+        </div>
+
+        <script>
+        const parent = document.getElementById("div1");
+        const child = document.getElementById("p1");
+        parent.removeChild(child);
+        </script> 
+        
+        
+        
+        
+        Replacing HTML Elements
+        use replaceChild()
+         <div id="div1">
+          <p id="p1">This is a paragraph.</p>
+          <p id="p2">This is another paragraph.</p>
+        </div>
+
+        <script>
+        const para = document.createElement("p");
+        const node = document.createTextNode("This is new.");
+        para.appendChild(node);
+
+        const parent = document.getElementById("div1");
+        const child = document.getElementById("p1");
+        parent.replaceChild(para, child);
+        </script> 
+        
+        
+        
+
+HTML DOM collections
+    // getElementsByTagName() returns HTMLCollection object
+    // HTMLCollection objet:
+       array-like list (collection) of HTML elements.
+       
+    // select all <p> in doc
+    const myCollection = document.getElementsByTagName("p");
+    
+    // access elems in collection using index no.
+    myCollection[1]
+    
+    
+    myCollection.length
+    
+    const myCollection = document.getElementsByTagName("p");
+    for (let i = 0; i < myCollection.length; i++) {
+      myCollection[i].style.color = "red";
+    }
+    
+    // HTMLCollection is NOT an array
+    // you can loop, refer to elems with number:
+    // but you cannot use array methods; valueOf(), pop(), push(), join()
+    
+    
+
+
+
+
+HTML DOM Nodelist Object
+NodeList object:
+    list (collection) of nodes extracted from a doc.
+    almost same as HTMLCollection object
+    some altem browsers return nodelist obj instead of HTMLCollection for methods like getElementByClassName()
+    
+    all browsers return nodelist obj for property childNodes
+    most return nodelist obj for method querySelectorAll()
+    
+    
+    // select all <p> nodes in doc
+    const myNodeList = document.querySelectorAll("p");
+    
+    myNodeList[1]
+    
+    myNodelist.length 
+    
+    // change color of all <p> elems in a node list
+    const myNodelist = document.querySelectorAll("p");
+    for (let i = 0; i < myNodelist.length; i++) {
+      myNodelist[i].style.color = "red";
+    }
+                           
+                       
+             Diff Btwn HTMLCollection and NodeList
+
+HTMLCollection is collection of document elements 
+Nodelist is collection of doc nodes (elem nodes, attrib nodes, text nodes)
+HTMLCollection items can be accessed by their: name, id, index no.
+Nodelist can only be accessed by their index no.
+HTMLCollection always live collection: add <li> elem to list in DOM,  list in HTMLCollection will also change
+Nodelist most often static: add <li> elem to list in the DOM, list in nodelist will not change.
+
+getElementsByClassName() and getElementsByTagName() return a live HTMLCollection.
+querySelectorAll() returns a static Nodelist
+chldNodes property returns a live Nodelist 
+                                    
+                                    
+nodelist may look like an array, but its not.
+                                    
+                       
+                       
+                       
+
+
+
+HTML DOM Animation
+Learn to create animations using JavaScript
+
+
+        <!DOCTYPE html>
+        <html>
+        <body>
+
+        <h1>My First JavaScript Animation</h1>
+
+        <div id="animation">My animation will go here</div>
+
+        </body>
+        </html>  
+        
+        
+        // create an animation container
+            all animations should be relative to a container element.
+                             
+             <div id ="container">
+              <div id ="animate">My animation will go here</div>
+            </div>  
+            
+            
+            
+        // style the elements
+        //   container elem should be created with style = "position: relative".
+        //   animation element should be created with style = "position: absolute".
+        
+        
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background: red;
+        }              
+                       
+        
+        
+        
+        // Animation code
+        JS animations done by programming gradual changes in an element's style
+        changes called by timer. when timer interval is small, animation looks continuous
+        
+        id = setInterval(frame, 5);
+
+        function frame() {
+          if (/* test for finished */) {
+            clearInterval(id);
+          } else {
+            /* code to change the element style */ 
+          }
+        }    
+        
+        
+        
+        // create full animation using javaScript
+        function myMove() {
+          let id = null;
+          const elem = document.getElementById("animate");
+          let pos = 0;
+          clearInterval(id);
+          id = setInterval(frame, 5);
+          function frame() {
+            if (pos == 350) {
+              clearInterval(id);
+            } else {
+              pos++;
+              elem.style.top = pos + 'px';
+              elem.style.left = pos + 'px';
+            }
+          }
+        }                    
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+

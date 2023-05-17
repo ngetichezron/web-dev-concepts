@@ -1,0 +1,64 @@
+next() function is used in conjunction with a generator function 
+to control the flow of execution. 
+Generator functions are functions that can be paused and resumed, 
+allowing you to generate a sequence of values over time.
+
+When you call a generator function, 
+it returns an iterator object. 
+This iterator object has a next() method that you can call to 
+get the next value in the sequence. 
+Each time you call next(), the generator function resumes 
+execution until it encounters a yield expression, 
+which pauses the function and returns the value specified by the expression.
+
+example:
+
+function* generateSequence() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const sequenceIterator = generateSequence();
+
+console.log(sequenceIterator.next()); // { value: 1, done: false }
+console.log(sequenceIterator.next()); // { value: 2, done: false }
+console.log(sequenceIterator.next()); // { value: 3, done: false }
+console.log(sequenceIterator.next()); // { value: undefined, done: true }
+
+In this example, we define a generator function generateSequence() 
+that generates a sequence of three numbers using the yield keyword. 
+We then create an iterator object sequenceIterator by calling the 
+generator function, and we use the next() method 
+to get the next value in the sequence.
+
+The first call to next() returns { value: 1, done: false }, 
+indicating that the next value in the sequence is 1, 
+and that there are more values to come. 
+The second and third calls to next() return { value: 2, done: false } 
+and { value: 3, done: false } respectively, 
+indicating that the next values in the sequence are 2 and 3.
+
+Finally, the fourth call to next() returns { value: undefined, done: true }, 
+indicating that there are no more values in the sequence.
+
+You can also pass a value to the next() function, 
+which will be used as the result of the yield expression that paused the generator function. For example:
+
+
+function* generateSequence() {
+  const x = yield 1;
+  const y = yield x + 1;
+  yield y + 1;
+}
+
+const sequenceIterator = generateSequence();
+
+console.log(sequenceIterator.next()); // { value: 1, done: false }
+console.log(sequenceIterator.next(10)); // { value: 11, done: false }
+console.log(sequenceIterator.next(20)); // { value: 21, done: false }
+console.log(sequenceIterator.next()); // { value: undefined, done: true }
+
+In this example, we define a generator function generateSequence() that generates a sequence of three numbers using the yield keyword. We use the yield expression to pause the function and return the current value in the sequence, and we use the next() method to resume the function and pass a new value to the yield expression.
+
+The first call to next() returns { value: 1, done: false }, indicating that the next value in the sequence is 1. The second call to next(10) returns { value: 11, done: false }, indicating that the next value in the sequence is 10 + 1. The third call to next(20) returns { value: 21, done: false }, indicating that the next value in the sequence is 20 + 1. Finally, the fourth call to next() returns { value: undefined, done: true }, indicating that there are no more values in the

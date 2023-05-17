@@ -1,0 +1,39 @@
+pure function:
+
+    always returns the same result given the same inputs.
+    does not modify any data outside of its own scope.
+    does not have any side effects (such as changing the DOM, making HTTP requests, or modifying global variables).
+example :
+
+function add(a, b) {
+  return a + b;
+}
+
+This function takes two arguments a and b and returns their sum. 
+has no side effects and does not modify any data outside of its own scope. 
+always returns the same result given the same inputs.
+
+
+
+
+impure - a function that does not meet all three of these criteria.
+example 
+
+
+let counter = 0;
+
+function incrementCounter() {
+  counter++;
+}
+
+This function increments a global variable counter
+has side effects outside of its own scope. 
+It is not a pure function.
+
+Impure functions can be useful in some cases: 
+when you need to interact with the DOM or make HTTP requests. 
+
+However, can be more difficult to reason about and test than pure functions. 
+
+By writing pure functions whenever possible, you can create more predictable and reusable code 
+that is easier to maintain and debug.

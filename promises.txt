@@ -1,0 +1,75 @@
+Sure, here are some examples of using JavaScript promises:
+
+    Basic Promise
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Data is ready!');
+  }, 2000);
+});
+
+promise.then((data) => {
+  console.log(data); // Output: Data is ready!
+});
+
+This creates a new promise that resolves with the string "Data is ready!" after 2 seconds. When the promise resolves, it logs the data to the console.
+
+    Promise with Error Handling
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const error = new Error('Data retrieval failed.');
+    reject(error);
+  }, 2000);
+});
+
+promise.catch((error) => {
+  console.error(error.message); // Output: Data retrieval failed.
+});
+
+This creates a new promise that rejects with an error after 2 seconds. The catch method handles the error and logs the error message to the console.
+
+    Chaining Promises
+const promise1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(10);
+  }, 1000);
+});
+
+const promise2 = promise1.then((value) => {
+  console.log(value); // Output: 10
+  return value * 2;
+});
+
+const promise3 = promise2.then((value) => {
+  console.log(value); // Output: 20
+});
+
+promise3.then(() => {
+  console.log('All promises resolved!');
+});
+
+This example creates three promises that are chained together. promise1 resolves after 1 second with a value of 10. promise2 then logs the value of promise1 to the console and returns a new value that is double the value of promise1. promise3 logs the new value to the console. Finally, promise3 logs "All promises resolved!" to the console after all promises have resolved.
+
+    Promise.all
+const promise1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(10);
+  }, 1000);
+});
+
+const promise2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(20);
+  }, 2000);
+});
+
+const promise3 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(30);
+  }, 3000);
+});
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values); // Output: [10, 20, 30]
+});
+
+This example creates three promises that resolve after different amounts of time. The Promise.all method is used to wait for all three promises to resolve, and then log their values to the console in an array.

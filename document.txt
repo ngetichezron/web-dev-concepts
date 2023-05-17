@@ -1,0 +1,35 @@
+Commonly used JavaScript methods and properties that start with document. along with their brief descriptions and examples:
+
+document.querySelector(): Returns the first element within the document that matches the specified selector, or group of selectors. For example:
+const element = document.querySelector('.my-class');
+
+document.querySelectorAll(): Returns a NodeList of all elements within the document that match the specified selector, or group of selectors. For example:
+const elements = document.querySelectorAll('.my-class');
+
+document.getElementById(): Returns the element with the specified ID. For example:
+const element = document.getElementById('my-id');
+
+document.createElement(): Creates an HTML element with the specified tag name. For example:
+const element = document.createElement('div');
+
+document.createTextNode(): Creates a new text node with the specified text. For example:
+const textNode = document.createTextNode('Hello, world!');
+
+document.body: Returns the <body> element of the document. For example:
+const bodyElement = document.body;
+
+
+document.head: Returns the <head> element of the document. For example:
+const headElement = document.head;
+
+document.title: Returns or sets the title of the current document. For example:
+const pageTitle = document.title;
+document.title = 'New Page Title';
+
+document.cookie: Returns or sets the cookies associated with the current document. For example:
+const cookies = document.cookie;
+document.cookie = 'username=johndoe';
+
+document.location: Returns information about the current URL. For example:
+const currentUrl = document.location.href;
+const currentPathname = document.location.pathname;

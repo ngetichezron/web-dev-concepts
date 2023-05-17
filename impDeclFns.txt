@@ -1,0 +1,52 @@
+In JavaScript, you can implement functions in two main ways: Imperative and Declarative.
+// JS Fns can be implemented in two main ways: 
+// imperative
+// declarative
+
+Imperative programming 
+tell computer how to do something step by step. 
+involves giving specific instructions to the computer to execute. 
+implemented using loops, conditionals, and other control structures. 
+example: function that sums up the elements of an array:
+
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+In this function, we use a for loop to iterate over the elements of the array, 
+we use a variable sum to keep track of the total sum. 
+The function returns the final value of sum.
+
+
+
+Declarative programming, 
+describing what you want to happen rather than how to do it. 
+implemented using higher-order functions like map, filter, and reduce. 
+example:same function that sums up the elements of an array:
+
+function sumArray(array) {
+  return array.reduce((sum, current) => sum + current, 0);
+}
+
+In this function, we use the reduce method to iterate over the elements of the array and calculate the sum. 
+The reduce method takes a callback function that is called for each element in the array. 
+The first argument to the callback function (sum) is the accumulated value, 
+the second argument (current) is the current value being iterated over. 
+The callback function returns the new accumulated value for the next iteration. 
+The second argument to the reduce method (0) is the initial value of sum.
+
+declarative implementation  more concise and arguably easier to read and understand. 
+allows you to express the logic of your code in a more abstract way, 
+which can make it easier to reason about and modify.
+
+Imperative programming:
+telling the computer how to do something step by step, 
+Declarative programming:
+describing what you want to happen rather than how to do it. 
+Declarative functions can be implemented using higher-order functions like map, filter, and reduce, 
+
+Imperative functions can be implemented using loops, conditionals, and other control structures.

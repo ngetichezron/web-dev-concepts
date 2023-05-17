@@ -1,0 +1,101 @@
+Standard JavaScript event listeners with examples of how they are used:
+
+click - The click event is triggered when the user clicks on an element.
+Example:
+const button = document.querySelector('button');
+button.addEventListener('click', function() {
+  console.log('Button clicked!');
+});
+
+dblclick - The dblclick event is triggered when the user double-clicks on an element.
+Example:
+const div = document.querySelector('div');
+div.addEventListener('dblclick', function() {
+  console.log('Div double-clicked!');
+});
+
+mousedown - The mousedown event is triggered when the user presses a mouse button over an element.
+Example:
+const button = document.querySelector('button');
+button.addEventListener('mousedown', function() {
+  console.log('Button pressed!');
+});
+
+mouseup - The mouseup event is triggered when the user releases a mouse button over an element.
+Example:
+const button = document.querySelector('button');
+button.addEventListener('mouseup', function() {
+  console.log('Button released!');
+});
+
+mousemove - The mousemove event is triggered when the user moves the mouse over an element.
+Example:
+const div = document.querySelector('div');
+div.addEventListener('mousemove', function(event) {
+  console.log('Mouse position: (' + event.clientX + ', ' + event.clientY + ')');
+});
+
+mouseover - The mouseover event is triggered when the user moves the mouse over an element, or one of its child elements.
+Example:
+const div = document.querySelector('div');
+div.addEventListener('mouseover', function() {
+  console.log('Mouse over the div!');
+});
+
+mouseout - The mouseout event is triggered when the user moves the mouse out of an element, or one of its child elements.
+Example:
+const div = document.querySelector('div');
+div.addEventListener('mouseout', function() {
+  console.log('Mouse out of the div!');
+});
+
+contextmenu - The contextmenu event is triggered when the user right-clicks on an element.
+Example:
+const div = document.querySelector('div');
+div.addEventListener('contextmenu', function() {
+  console.log('Context menu opened!');
+});
+
+keydown - The keydown event is triggered when a key on the keyboard is pressed down.
+Example:
+document.addEventListener('keydown', function(event) {
+  console.log('Key pressed: ' + event.key);
+});
+
+keyup - The keyup event is triggered when a key on the keyboard is released.
+Example:
+document.addEventListener('keyup', function(event) {
+  console.log('Key released: ' + event.key);
+});
+
+load - The load event is triggered when a page or an element finishes loading.
+Example:
+window.addEventListener('load', function() {
+  console.log('Page loaded!');
+});
+
+unload - The unload event is triggered when a page is unloaded.
+Example:
+window.addEventListener('unload', function() {
+  console.log('Page unloaded!');
+});
+
+resize - The resize event is triggered when the browser window is resized.
+Example:
+window.addEventListener('resize', function() {
+  console.log('Window resized!');
+});
+
+scroll - The scroll event is triggered when an element is scrolled.
+Example:
+const div = document.querySelector('div');
+div.addEventListener('scroll', function() {
+  console.log('Div scrolled!');
+});
+
+select - The select event is triggered when the user selects some text in an element.
+Example:
+const input = document.querySelector('input');
+input.addEventListener('select', function() {
+  console.log('Text selected
+

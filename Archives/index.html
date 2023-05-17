@@ -1,0 +1,172 @@
+<div id="exampleDiv">Some text here</div>
+<script>
+    const elem = document.getElementById( 'exampleDiv' );
+</script>
+
+
+<div id='exampleDiv1'>Some text here</div>
+<div id='exampleDiv2'>Some text here</div>
+<div id='exampleDiv3'>Some text here</div>
+<script>
+    const elems1 = document.getElementsByTagName('div');
+</script>
+
+
+
+<div class='example'>Some text here</div>
+<img class='example'></img>
+<style class='example'></style>
+<script>
+    const elems2 = document.getElementsByClassName('example');
+</script>
+
+
+
+<div id='id1'>Some text here</div>
+<img class='class'></img>
+<script>
+    const elem1 = document.querySelector('img.class');
+    const elems3 = document.querySelectorAll('img.class, #id1');
+</script>
+
+
+<script>
+    const newElem = document.createElement('div');
+</script>
+
+
+
+<div id='div1'>
+    <div id='div2'> Text </div>
+</div>
+<script>
+    const div1 = document.getElementById('div1');
+    const div1Clone = div1.cloneNode(false);
+    const div1Div2Clone = div1.cloneNode(true)
+</script>
+
+
+<script>
+    const textNode = document.createTextNode('Text goes here');
+</script>
+
+
+<div id='div1'></div>
+<script>
+    const div1 = document.getElementById('div1');
+    const div2 = document.createElement('div');
+    div1.appendChid(div2);
+</script>
+
+
+<div id='div1'>
+    <div id='div2'></div>
+</div>
+<script>
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+    const div3 = document.createElement('div');
+    const div4 = document.createElement('div');
+    div1.insertBefore(div3, div2);
+    div1.insertBefore(div4, null);
+</script>
+
+
+<div id='div1'>
+    <div id='div2'></div>
+</div>
+<script>
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+    div1.removeChild(div2);
+</script>
+
+
+<div id='div1'>
+    <div id='div2'></div>
+</div>
+<div id='div3'></div>
+<script>
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+    const div3 = document.getElementById('div3');
+    div1.replaceChild(div3, div2);
+</script>
+
+
+<div id='div1'></div>
+<script>
+    const div1 = document.getElementById('div1');
+    div1.innerHTML = '<p>Paragraph1</p><p>Paragraph2</p>';
+</script>
+
+
+<div id='div1'></div>
+<script>
+    const div1 = document.getElementById('div1');
+    div1.setAttribute('testName', 'testValue');
+    div1.getAttribute('testName');
+    div1.removeAttribute('testName');
+</script>
+
+
+<button id='button1'>Click me!</button>
+<script>
+    const button1 = document.getElementById('button1');
+    button1.addEventListener('click', () => {
+        console.log('Clicked');
+    }, false);
+</script>
+
+
+
+<button id='button1'>Click me!</button>
+<script>
+    const button1 = document.getElementById('button1');
+    function eventHandler() {
+        console.log('clicked!');
+    }
+    button1.addEventListener('click', eventHandler, true);
+    button1.removeEventListener('click', eventHandler, true);
+</script>
+
+
+
+<script>
+    const event = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true
+    });
+    const element = document.getElementById('button');
+    const canceled = element.dispatchEvent(event);
+</script>
+
+
+
+<script>
+    const element = document.getElementById('button');
+    element.addEventListener('myClick', e => {
+        console.log(e.detail);
+    });
+    const event = new CustomEvent('myClick', { detail: 'Hello!' });
+    const canceled = element.dispatchEvent(event);
+</script>
+
+
+
+<script>
+    const divs = $('div'); // JQuery select all divs
+    const div1 = document.getElementById('div1'); // DOM select a div
+    const jqueryDiv1 = $(div1); // Create a JQuery object from div
+</script>
+
+
+
+<script src='jquery.js'></script>
+<script>
+    // Set the jQuery alias to $j instead of $
+    const $j = jQuery.noConflict();
+</script>
+
+
+
